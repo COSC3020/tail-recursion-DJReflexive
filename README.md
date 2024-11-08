@@ -12,7 +12,7 @@ the function and run automatically when you commit through a GitHub action.
 Hint: It may help to have a look at the iterative dynamic programming
 implementation. What changes between iterations of the loop?
 
-## Runtime Analysis
+# Runtime Analysis
 
 Is the asymptotic complexity of tail-recursive Fibonacci different from the
 non-tail-recursive version? Why, or why not, and what is the complexity
@@ -22,11 +22,16 @@ markdown file.
 
 ## My Runtime Analysis
 
-My Analysis...
+When the fibonacciTailRecursive() is called, all that it does is call an auxilary function (local function) using 2 accumulators initialized to 0 and 1. This operation is constant.
+
+Inside the auxilary function fib(), here's where the tail recursion occurs. When the recursive call happens, most of the arithmetic occurs in the arguments themselves. And since there is only one recursive call, this algorithm can execute in linear time - $\Theta(n)$.
+
+The asymptotic complexity of the standard recursive fibonacci function is slower than the tail recursive version. The standard recursive function (which can be found in the code.test.js file), has two recursive calls at the end. As more and more calls happen, it grows exponentially, meaning the standard recursive version has a complexity of $\Theta(2^n)$. Since the recursive version above is only linear time, this makes the tail recursive much faster than the standard version.
+
 
 # Sources
 
-- None
+- ChatGPT - For runtime complexity of the standard fibonacci function. (I deduced the runtime of the recursive fibonacci myself).
 
 # Plagiarism Acknowledgement
 
